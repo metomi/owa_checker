@@ -1,0 +1,40 @@
+#!/bin/bash
+# ----------------------------------------------------------------------------#
+# (C) British Crown Copyright 2019 Met Office.                                #
+# Author: Steve Wardle                                                        #
+#                                                                             # 
+# This file is part of OWA Checker.                                           #
+# OWA Checker is free software: you can redistribute it and/or modify it      #
+# under the terms of the Modified BSD License, as published by the            #
+# Open Source Initiative.                                                     #
+#                                                                             #
+# OWA Checker is distributed in the hope that it will be useful,              #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of              #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the               #
+# Modified BSD License for more details.                                      #
+#                                                                             #
+# You should have received a copy of the Modified BSD License                 #
+# along with OWA Checker...                                                   #
+# If not, see <http://opensource.org/licenses/BSD-3-Clause>                   #
+# ----------------------------------------------------------------------------#
+chk=$(ps auxw | grep $USER | grep owa_checker.py | grep -v grep | wc -l)
+if [ $chk -eq 1 ] ; then
+  echo "Cannot launch OWA Checker (already running)"
+  exit 1
+fi
+
+if [ $# -eq 0 ] ; then
+  python "$(dirname "$0")/owa_checker.py"
+elif [ $# -eq 1 ] ; then
+  if [ "$1" == "--auth" ] ; then
+    python "$(dirname "$0")/oauth2.py"
+  else
+    echo "Only supported argument is \"--auth\""
+    exit 1
+  fi
+else
+  echo "Only supported argument is \"--auth\""
+  exit 1
+fi
+
+
