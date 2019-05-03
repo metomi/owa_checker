@@ -1,6 +1,9 @@
 (C) British Crown Copyright 2019 Met Office.
+
 Author: Steve Wardle
-----------------------------------------------------------------------------
+
+OWA Checker
+-----------
 
 OWA Checker is a tool to provide native popup notifications for mail and
 calendar events for users using Microsoft's OWA (Outlook Web Access) - the
