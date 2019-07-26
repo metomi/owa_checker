@@ -185,9 +185,9 @@ def cache_refresh_token():
     # If the path doesn't already exist, create it, otherwise
     # just ensure it is private
     if not os.path.exists(TOKEN_CACHE_PATH):
-        os.mkdir(TOKEN_CACHE_PATH, 0700)
+        os.mkdir(TOKEN_CACHE_PATH, 0o700)
     else:
-        os.chmod(TOKEN_CACHE_PATH, 0700)
+        os.chmod(TOKEN_CACHE_PATH, 0o700)
 
     cache_file = os.path.join(TOKEN_CACHE_PATH, "refresh")
     with open(cache_file, "w") as cfile:
