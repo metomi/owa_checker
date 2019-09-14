@@ -28,12 +28,13 @@ Before you can use OWA Checker you need to create a new application profile
 for it within Microsoft's Azure system.  The steps here may vary depending on
 your site but will be something like:
 
- 1. Navigate to apps.dev.microsoft.com and sign in using your account (which
+ 1. Navigate to portal.azure.com and sign in using your account (which
     should redirect to your own site's infrastructure)
  2. The app name doesn't matter, call it something like "OWA Checker"
  3. Under Authentication use "Web" and Redirect URI of "http://localhost:1234"
  4. In the Overview, make a note of the "Application (client) ID"
- 5. Under Certificates, make a note of the "Clent Secret" (create one if needed)
+ 5. Under Certificates, make a note of the "Client Secret" (create one if
+    needed)
  6. Under API Permissions, ensure that the app has the following:
      * Calendars.Read
      * Mail.Read
